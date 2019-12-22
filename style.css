@@ -157,6 +157,14 @@ h1 {
     text-align: center;
 }
 
+.win {
+    color: #00bf33;
+}
+
+.loss {
+    color: #fc0303;
+}
+
 .spin:hover {
     font-size: 1.8rem;
     cursor: pointer;

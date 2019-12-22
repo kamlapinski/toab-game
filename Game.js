@@ -54,8 +54,6 @@ class Game {
             if (!this.wallet.checkCanPlay(bid)) {
                 return alert('Not enough money or wrong value');
             }
-            this.spanWins.style.color = '#00bf33';
-            this.spanLosses.style.color = '#fc0303';
             this.wallet.changeWallet(bid, '-');
             this.draw = new Draw();
             const colors = this.draw.getDrawResult();
