@@ -18,11 +18,14 @@ class Game {
         this.boards.forEach((board, index) => {
             board.style.backgroundColor = colors[index]
         });
-        this.spanWallet.textContent = money;
+        this.spanWallet.textContent = money+'$';
         if (result) {
-            result = `You win ${bid}`;
+            result = `You win ${bid} $.`;
+            this.spanResult.style.color = '#00bf33';
         } else if (!result && result !== '') {
-            result = `You lose ${bid}`;
+            result = `You lose ${bid} $.`;
+            this.spanResult.style.color = '#fc0303';
+
         }
         this.spanResult.textContent = result;
         this.spanGames.textContent = stats[0];
@@ -33,16 +36,18 @@ class Game {
     startGame() {
 
         let loope = setInterval(() => {
-            let colorss = ['red', 'green', 'blue'];
+            let colorss = ['#fc0303', '#2100f5', '#00bf33' ];
             let boxes = document.getElementsByClassName('box');
             let i = Math.floor(Math.random() * 2);
             for (let j = 0; j <= 2; j++) {
-                boxes[j].style.backgroundColor = colorss[i]
+                boxes[j].style.backgroundColor = colorss[i];
+                if (this.inputBid.value < 1) {
+                   clearInterval(loope); 
+               }
             };
         }, 100);
         setTimeout(() => {
             if (this.inputBid.value < 1) {
-                clearInterval(loope);
                 return alert('Not enough money!');
             }
             const bid = Math.floor(this.inputBid.value);

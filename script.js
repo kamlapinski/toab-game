@@ -1,7 +1,7 @@
 const logoMove = () => {
-    setInterval(()=> {
+    setInterval(() => {
         document.querySelector('h1').classList.toggle('h1move');
-    },300);
+    }, 300);
 };
 window.addEventListener('load', logoMove);
 
